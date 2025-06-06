@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connect ID - Home</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: rgb(24, 27, 34);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .centerscreen {
+      width: 560px;
+      height: 900px;
+      background-color: #1b2a41;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 30px;
+      box-sizing: border-box;
+      color: #ececee;
+    }
+
+    .app-title {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #ececee;
+    }
+
+    .app-title span {
+      color: #4a90e2;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .btn-logout {
+      background-color: transparent;
+      border: 2px solid #4a90e2;
+      color: #4a90e2;
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn-logout:hover {
+      background-color: #4a90e2;
+      color: #fff;
+    }
+
+    main {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .story {
+      background-color: #ececee;
+      color: #1b2a41;
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .story h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .story p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .bottom-dashboard {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #333;
+      padding: 6px 0;
+      background-color: #1b2a41;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .dash-btn {
+      background: none;
+      border: none;
+      color: #888;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      padding: 5px 10px;
+      transition: color 0.3s;
+    }
+
+    .dash-btn svg {
+      display: block;
+    }
+
+    .dash-btn:hover,
+    .dash-btn.active {
+      color: #4a90e2;
+    }
+  </style>
+</head>
+<body>
+  <div class="centerscreen">
+    <header>
+      <h1 class="app-title">Connect <span>ID</span></h1>
+      <button class="btn-logout">Logout</button>
+    </header>
+
+    <main>
+      <div class="story">
+        <h3>Sarah – Harvard University</h3>
+        <p>Late-night study sessions, campus walks, and meaningful conversations with brilliant minds made my Harvard journey unforgettable.</p>
+      </div>
+      <div class="story">
+        <h3>Raj – IIT Bombay</h3>
+        <p>I learned more outside the classroom than inside — coding with friends at 2 AM, endless chai breaks, and the pressure of techfests.</p>
+      </div>
+      <div class="story">
+        <h3>Amanda – Stanford</h3>
+        <p>Stanford gave me the courage to pursue innovation. Being part of a startup during college was surreal and life-changing.</p>
+      </div>
+      <div class="story">
+        <h3>Karthik – NIT Trichy</h3>
+        <p>From robotics club wins to hostel pranks, NITT shaped my personality and taught me how to work hard and laugh harder.</p>
+      </div>
+      <div class="story">
+        <h3>Ahmed – University of Oxford</h3>
+        <p> At Oxford, I discovered the power of dialogue. Whether over tea or debates at the Union, the culture of critical thinking shaped my worldview.</p>
+      </div>
+      <div class="story">
+        <h3>Rohan – IISc Bangalore</h3>
+        <p>Research was more than labs and reports—it was passion. IISc gave me mentors who pushed me to think deeply and never settle for average.</p>
+      </div>
+
+    </main>
+
+    <nav class="bottom-dashboard">
+      <button class="dash-btn" aria-label="Home">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="#4a90e2" viewBox="0 0 24 24"><path d="M4 20v-16h16v16Zm2-2h12v-12H6Zm6-1q.825 0 1.413-.588Q14 15.825 14 15t-.587-1.412Q12.825 13 12 13q-.825 0-1.413.588Q10 14.175 10 15t.587 1.412Q11.175 17 12 17Zm-6-8h12v4H6Z"/></svg>
+        <span>Home</span>
+      </button>
+      <button class="dash-btn" aria-label="Search">
+        <a href="search.html" class="dash-btn" aria-label="Search">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="#888" viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm7-8h-2v10h2Zm-14 0H3v10h2Z"/></svg>
+        <span>Search</span>
+      </button>
+    </a>
+      <a href="groups.html" class="dash-btn" aria-label="Groups">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="#888" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 0 0 10 5 5 0 0 0 0-10Zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm-7-8h2v10H5Zm14 0h-2v10h2Z"/></svg>
+        <span>Groups</span>
+      </a>
+      <a href="profile.html" class="dash-btn" aria-label="Profile">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="#888" viewBox="0 0 24 24">
+          <path d="M12 20q-2.075 0-3.55-1.475Q7 17.05 7 15q0-1.8 1.075-3.138Q9.15 10.525 11 10.15v-1.3q-1.825.35-3.088 1.75Q6.65 12.45 6.65 15q0 2.625 1.875 4.5Q10.4 21.35 13 21.35q2.65 0 4.512-1.875Q19.35 17.6 19.35 15q0-2.35-1.262-3.75-1.263-1.4-3.088-1.75v1.3q1.85.375 2.925 1.712Q17 13.2 17 15q0 2.05-1.475 3.525Q14.05 20 12 20Zm0-15q-2.075 0-3.55-1.475Q7 2.05 7 0q0-2.075 1.475-3.55Q9.95-5 12-5q2.075 0 3.55 1.475Q17 2.05 17 4.1 17 6.15 15.525 7.6 14.05 9 12 9Z"/>
+        </svg>
+        <span>Profile</span>
+      </a>
+    </nav>
+  </div>
+</body>
+</html>

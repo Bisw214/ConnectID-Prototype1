@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connect ID - Search</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: rgb(24, 27, 34);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .centerscreen {
+      width: 560px;
+      min-height: 900px;
+      background-color: #1b2a41;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      padding: 40px 30px;
+      box-sizing: border-box;
+      color: #ececee;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .app-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: #ececee;
+      text-align: center;
+      margin-bottom: 30px;
+      letter-spacing: 2px;
+    }
+
+    .app-title span {
+      color: #4a90e2;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    select, button {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      border: 1px solid #4a90e2;
+      outline: none;
+    }
+
+    button {
+      background-color: #4a90e2;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #3b7cc3;
+    }
+
+    .results {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .result-card {
+      background-color: #2a3953;
+      border-radius: 12px;
+      padding: 15px;
+      color: #ececee;
+      font-size: 16px;
+    }
+
+    .result-card strong {
+      color: #4a90e2;
+    }
+  </style>
+</head>
+<body>
+  <main class="centerscreen">
+    <h1 class="app-title">Connect <span>ID</span></h1>
+    <h2 class="section-title">Search</h2>
+
+    <select id="university-select">
+      <option value="">Select University</option>
+      <option>Parul University</option>
+      <option>IIT Bombay</option>
+      <option>IIT Delhi</option>
+      <option>Harvard University</option>
+      <option>MIT</option>
+      <option>Stanford University</option>
+      <option>Oxford University</option>
+      <option>Yale University</option>
+     
+    </select>
+
+    <select id="tag-select">
+      <option value="">Select Tag</option>
+      <option>Robotics</option>
+      <option>Startup Founder</option>
+      <option>Computer Science Engineer</option>
+      <option>Doctor</option>
+      <option>Band / Music</option>
+      <option>Football</option>
+      <option>Photography</option>
+      <option>Youtuber</option>
+      <option>Data Scientist</option>
+      <option>Entrepreneurship / Creativity</option>
+      <option>Drawing</option>
+      <option>Dance</option>
+    </select>
+
+    <button onclick="searchPeople()">Search</button>
+
+    <div id="results" class="results"></div>
+  </main>
+
+  <script>
+    const people = [
+      { name: "Arjun Mehta", university: "IIT Bombay", tag: "Robotics" },
+      { name: "Saira kunj", university: "IIT Bombay", tag: "Band / Music" },
+      { name: "Mohit", university: "IIT Bombay", tag: "Business" },
+      { name: "Dhruvit sharma", university: "IIT Bombay", tag: "Computer Science Engineer" },
+      { name: "komal mishra", university: "IIT Bombay", tag: "Startup Founder" },
+      { name: "Sujal Agarwal", university: "IIT Bombay", tag: "AI Engineer" },
+      { name: "Ronik Goswami", university: "IIT Bombay", tag: "Writing" },
+
+
+      { name: "Biswanath Prasad", university: "Parul University", tag: "Entrepreneurship / Creativity" },
+      { name: "Biswanath Prasad", university: "Parul University", tag: "Band / Music" },
+      { name: "Liam Roy", university: "Harvard University", tag: "Doctor" },
+      { name: "Aanya Patel", university: "MIT", tag: "Data Scientist" },
+      { name: "Ravi Joshi", university: "Stanford University", tag: "Startup Founder" },
+      { name: "Elina Sharma", university: "Parul University", tag: "Band / Music" },
+      { name: "Ishaan Chauhan", university: "IIT Bombay", tag: "AI Engineer" },
+ 
+      { name: "Priya Sen", university: "Stanford University", tag: "Robotics" },
+  { name: "Ritika Jain", university: "IIT Delhi", tag: "Doctor" },
+  { name: "Rahul Iyer", university: "Harvard University", tag: "Startup Founder" },
+  { name: "Zoya Khan", university: "Parul University", tag: "Drawing" },
+  { name: "Mihir Desai", university: "Oxford University", tag: "Youtuber" },
+  { name: "Anaya Joshi", university: "MIT", tag: "Dance" },
+  { name: "Kritika Singh", university: "Yale University", tag: "Coder" },
+  { name: "Aditya Reddy", university: "Parul University", tag: "Football" },
+  { name: "Tanya Sharma", university: "Stanford University", tag: "Band / Music" },
+  { name: "Karan Gupta", university: "Harvard University", tag: "Photography" },
+  { name: "Divya Shah", university: "Oxford University", tag: "Entrepreneurship / Creativity" },
+  { name: "Rohit Malhotra", university: "IIT Bombay", tag: "Computer Science Engineer" },
+  { name: "Anjali Bhatt", university: "IIT Delhi", tag: "Data Scientist" },
+  { name: "Dev Sharma", university: "MIT", tag: "AI Engineer" }
+    ];
+
+    function searchPeople() {
+      const university = document.getElementById('university-select').value;
+      const tag = document.getElementById('tag-select').value;
+      const resultBox = document.getElementById('results');
+      resultBox.innerHTML = '';
+
+      if (!university || !tag) {
+        resultBox.innerHTML = '<p>Please select both filters.</p>';
+        return;
+      }
+
+      const matches = people.filter(p =>
+        p.university === university && p.tag === tag
+      );
+
+      if (matches.length === 0) {
+        resultBox.innerHTML = '<p>No matching people found.</p>';
+        return;
+      }
+
+      matches.forEach(person => {
+        const card = document.createElement('div');
+        card.className = 'result-card';
+        card.innerHTML = `
+          <div><strong>${person.name}</strong></div>
+          <div>University: <strong>${person.university}</strong></div>
+          <div>Tag: <strong>${person.tag}</strong></div>
+        `;
+        resultBox.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>
